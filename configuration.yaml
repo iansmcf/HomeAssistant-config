@@ -1,0 +1,213 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: ! secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+
+  customize:
+    ## lights
+    # hide individual hue lamps in the kitchen
+    light.hue_color_lamp_1:
+      hidden: true
+    light.hue_color_lamp_2:
+      hidden: true
+    # declare the warehouse lights in the kitchen
+    light.kitchen:
+      hidden: false
+      friendly_name: "Warehouse lights"
+    # hide bedroom room
+    light.bedroom:
+      hidden: true
+    # declare bedroom lamp
+    light.hue_color_lamp_3:
+      hidden: false
+      friendly_name: "Bedroom lamp"
+    # declare living room lamp
+    light.hue_color_lamp_4:
+      hidden: false
+      friendly_name: "Living room lamp"
+    # declare desk lightstrip
+    light.hue_lightstrip_1:
+      friendly_name: "Desk lightstrip"
+      #hidden: true
+    # declare bathroom lightstrip
+    light.hue_lightstrip_2:
+      friendly_name: "Bathroom nightlight"
+      hidden: true
+    # hide bathroom room
+    light.bathroom:
+      hidden: true
+    # hide living room room
+    light.living_room:
+      hidden: true
+    ##zwave
+    # declare front door
+    binary_sensor.ecolink_doorwindow_sensor_sensor_2_0:
+      friendly_name: "Front door sensor"
+    # declare bathroom motion
+    binary_sensor.ecolink_pir_motion_sensor_sensor_3_0:
+      friendly_name: "Bathroom motion"
+    # hide everything else
+    sensor.ecolink_doorwindow_sensor_alarm_level_2_1:
+      hidden: true
+    sensor.ecolink_doorwindow_sensor_alarm_type_2_0:
+      hidden: true
+    sensor.ecolink_doorwindow_sensor_burglar_2_10:
+      hidden: true
+    sensor.ecolink_doorwindow_sensor_sourcenodeid_2_2:
+      hidden: true
+    sensor.ecolink_pir_motion_sensor_alarm_level_3_1:
+      hidden: true
+    sensor.ecolink_pir_motion_sensor_alarm_type_3_0:
+      hidden: true
+    sensor.ecolink_pir_motion_sensor_burglar_3_10:
+      hidden: true
+    sensor.ecolink_pir_motion_sensor_sourcenodeid_3_2:
+      hidden: true
+    ##weather
+    # hide the weather
+    sensor.yr_symbol:
+      hidden: true
+    ##sun
+    # hide the sun
+    sun.sun:
+      hidden: true
+
+# Enables the frontend
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+
+# Weather Prediction
+sensor:
+  platform: yr
+
+
+# Text to speech
+tts:
+  platform: google
+
+
+# Lights
+light:
+  platform: hue
+  host: 192.168.88.32
+
+# enable wemo component
+wemo:
+  static:
+    - 192.168.88.20
+
+
+media_player:
+  # enable roku component
+- platform: roku
+  host: 192.168.88.30
+  # enable plex component
+- platform: plex
+  # enable bedroom google cast
+- platform: cast
+  host: 192.168.88.33
+  # enable google home cast
+- platform: cast
+  host: 192.168.88.31
+
+# my computer
+#device_tracker:
+#  - platform: ping
+#    hosts:
+#      router: 192.168.88.250
+
+
+# enable zwave
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /home/homeassistant/python-openzwave/openzwave/config
+
+
+# group "white" lights
+group:
+  white_lights:
+    #friendly_name: Lights
+    entities:
+      - light.kitchen
+      - light.hue_color_lamp_3
+      - light.hue_color_lamp_4
+
+# control "white" lights
+script:
+  candlelight:
+    alias: "Good night"
+    sequence:
+      - service: light.turn_on
+        entity_id: group.white_lights
+        data:
+          color_temp: 500
+          brightness: 120
+  sunlight:
+    alias: "Good morning"
+    sequence:
+      - service: light.turn_on
+        entity_id: group.white_lights
+        data:
+          color_temp: 160
+          brightness: 255
+
+
+
+# rule for turning off and on the bathroom nightlight based on motion detection
+automation:
+  alias: Turn on bathroom nightlight when motion is detected
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+    from: 'off'
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.hue_lightstrip_2
+
+automation 2:
+  alias: Turn off bathroom nightlight when motion is not detected
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+    from: 'on'
+    to: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.hue_lightstrip_2
