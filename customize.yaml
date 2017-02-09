@@ -1,0 +1,67 @@
+## lights
+# hide individual hue lamps in the kitchen
+light.hue_color_lamp_1:
+  hidden: true
+light.hue_color_lamp_2:
+  hidden: true
+# declare the warehouse lights in the kitchen
+light.kitchen:
+  hidden: false
+  friendly_name: "Warehouse lights"
+# hide bedroom room
+light.bedroom:
+  hidden: true
+# declare bedroom lamp
+light.hue_color_lamp_3:
+  hidden: false
+  friendly_name: "Bedroom lamp"
+# declare living room lamp
+light.hue_color_lamp_4:
+  hidden: false
+  friendly_name: "Living room lamp"
+# declare desk lightstrip
+light.hue_lightstrip_1:
+  friendly_name: "Desk lightstrip"
+  #hidden: true
+# declare bathroom lightstrip
+light.hue_lightstrip_2:
+  friendly_name: "Bathroom nightlight"
+  hidden: true
+# hide bathroom room
+light.bathroom:
+  hidden: true
+# hide living room room
+light.living_room:
+  hidden: true
+##zwave
+# declare front door
+binary_sensor.ecolink_doorwindow_sensor_sensor_2_0:
+  friendly_name: "Front door sensor"
+# declare bathroom motion
+binary_sensor.ecolink_pir_motion_sensor_sensor_3_0:
+  friendly_name: "Bathroom motion"
+# hide everything else
+sensor.ecolink_doorwindow_sensor_alarm_level_2_1:
+  hidden: true
+sensor.ecolink_doorwindow_sensor_alarm_type_2_0:
+  hidden: true
+sensor.ecolink_doorwindow_sensor_burglar_2_10:
+  hidden: true
+sensor.ecolink_doorwindow_sensor_sourcenodeid_2_2:
+  hidden: true
+sensor.ecolink_pir_motion_sensor_alarm_level_3_1:
+  hidden: true
+sensor.ecolink_pir_motion_sensor_alarm_type_3_0:
+  hidden: true
+sensor.ecolink_pir_motion_sensor_burglar_3_10:
+  hidden: true
+sensor.ecolink_pir_motion_sensor_sourcenodeid_3_2:
+  hidden: true
+##weather
+# hide the weather
+sensor.yr_symbol:
+  hidden: true
+##sun
+# hide the sun
+sun.sun:
+  hidden: true
