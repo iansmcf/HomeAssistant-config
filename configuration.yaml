@@ -110,6 +110,23 @@ zwave:
   usb_path: /dev/ttyACM0
   config_path: /home/homeassistant/python-openzwave/openzwave/config
 
+zone:
+  name: Home
+  # Set geographical location of the zone, along with raidus.
+  # Conveniently re-uses the home location from the configuration of homeassistant
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: !secret home_zone_radius
+  # Set icon to material design icon, home
+  icon: mdi:home
+
+zone 2:
+  name: Work
+  latitude: !secret work_latitude
+  longitude: !secret work_longitude
+  radius: !secret work_zone_radius
+  # Set icon to material design icon, briefcase
+  icon: mdi:briefcase
 
 # group "white" lights
 group:
