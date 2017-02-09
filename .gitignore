@@ -20,3 +20,4 @@ pyozw.sqlite
 .*
 !/.gitignore
 zwscene.xml
+hass_restart
