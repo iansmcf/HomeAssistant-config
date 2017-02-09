@@ -104,6 +104,7 @@ mqtt:
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
+    track_new_devices: no
 
 # enable zwave
 zwave:
