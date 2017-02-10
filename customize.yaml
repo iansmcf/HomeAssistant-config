@@ -15,10 +15,12 @@ light.bedroom:
 light.hue_color_lamp_3:
   hidden: false
   friendly_name: "Bedroom lamp"
+  icon: mdi:lamp
 # declare living room lamp
 light.hue_color_lamp_4:
   hidden: false
   friendly_name: "Living room lamp"
+  icon: mdi:lamp
 # declare desk lightstrip
 light.hue_lightstrip_1:
   friendly_name: "Desk lightstrip"
