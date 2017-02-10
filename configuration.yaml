@@ -118,10 +118,10 @@ input_select:
     options:
       - Morning
       - Daytime
+      - Evening
       - Bedtime
     initial: Daytime
     icon: mdi:white-balance-sunny
-
 
 
 zone:
