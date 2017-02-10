@@ -67,3 +67,13 @@ sensor.yr_symbol:
 # hide the sun
 sun.sun:
   hidden: true
+
+##customize scripts
+script.daytime_light:
+  hidden: true
+script.morning_light:
+  hidden: true
+script.evening_light:
+  hidden: true
+script.bedtime_light:
+  hidden: true

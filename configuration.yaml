@@ -153,22 +153,39 @@ group:
 
 # control "white" lights
 script:
-  candlelight:
-    alias: "Good night"
+  # bedtime
+  bedtime_light:
     sequence:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
           color_temp: 500
           brightness: 120
-  sunlight:
-    alias: "Good morning"
+  # morning
+  morning_light:
     sequence:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
           color_temp: 160
           brightness: 255
+  # daytime
+  daytime_light:
+    sequence:
+      - service: light.turn_on
+        entity_id: group.white_lights
+        data:
+          color_temp: 280
+          brightness: 255
+  # evening
+  evening_light:
+    sequence:
+      - service: light.turn_on
+        entity_id: group.white_lights
+        data:
+          color_temp: 350
+          brightness: 200
+
 
 # Test configuration: add an empty webpage to the sidebar
 #panel_custom:
