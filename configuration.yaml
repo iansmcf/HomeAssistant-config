@@ -111,6 +111,19 @@ zwave:
   usb_path: /dev/ttyACM0
   config_path: /home/homeassistant/python-openzwave/openzwave/config
 
+# Add an input select which controls the white balance of lights in one of three modes
+input_select:
+  light_mode:
+    name: Light mode
+    options:
+      - Morning
+      - Daytime
+      - Bedtime
+    initial: Daytime
+    icon: mdi:white-balance-sunny
+
+
+
 zone:
   name: Home
   # Set geographical location of the zone, along with raidus.
@@ -157,7 +170,26 @@ script:
           color_temp: 160
           brightness: 255
 
+# Test configuration: add an empty webpage to the sidebar
+#panel_custom:
+#  - name: testpanel
+#    sidebar_title: testpanel
+#    sidebar_icon: mdi:work
+#    url_path: testpanel
+#    webcomponent_path: /home/hass/.homeassistant/www/hello.html
 
+# Add some local webpages to the home assistant front end
+panel_iframe:
+# Add the router webpage to the frontend
+  router:
+    title: 'Router'
+    url: !secret router_webpage
+    icon: mdi:access-point-network
+# Add the pihole webpage to the frontend
+  pihole:
+    title: 'DNS'
+    url: !secret pihole_webpage
+    icon: mdi:close-network
 
 # rule for turning off and on the bathroom nightlight based on motion detection
 automation:
