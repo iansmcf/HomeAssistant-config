@@ -105,6 +105,8 @@ device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
     track_new_devices: no
+#  - platform: nmap_tracker
+#    hosts: 192.168.88.150
 
 # enable zwave
 zwave:
