@@ -68,6 +68,12 @@ sensor.yr_symbol:
 sun.sun:
   hidden: true
 
+#customize switch
+switch.wemo_bedroom_switch:
+  hidden: false
+  icon: mdi:fan
+  friendly_name: Air filter
+
 ##customize scripts
 script.daytime_light:
   hidden: true
