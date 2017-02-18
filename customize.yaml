@@ -38,9 +38,11 @@ light.living_room:
 ##zwave
 # declare front door
 binary_sensor.ecolink_doorwindow_sensor_sensor_2_0:
+  hidden: true
   friendly_name: "Front door sensor"
 # declare bathroom motion
 binary_sensor.ecolink_pir_motion_sensor_sensor_3_0:
+  hidden: true
   friendly_name: "Bathroom motion"
 # hide everything else
 sensor.ecolink_doorwindow_sensor_alarm_level_2_1:
