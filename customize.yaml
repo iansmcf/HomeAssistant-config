@@ -74,6 +74,11 @@ switch.wemo_bedroom_switch:
   icon: mdi:fan
   friendly_name: Air filter
 
+#customize computer outlet
+switch.computer_outlet:
+  hidden: true
+  friendly_name: Computer outlet
+
 ##customize scripts
 script.daytime_light:
   hidden: true

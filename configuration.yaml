@@ -73,6 +73,7 @@ light:
 wemo:
   static:
     - 192.168.88.20
+    - 192.168.88.21
 
 
 media_player:
