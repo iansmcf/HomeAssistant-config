@@ -63,6 +63,24 @@ sensor.ecolink_pir_motion_sensor_sourcenodeid_3_2:
 # hide the weather
 sensor.yr_symbol:
   hidden: true
+# hide darksky weather
+sensor.weather_apparent_temperature:
+  hidden: true
+sensor.weather_humidity:
+  hidden: true
+sensor.weather_icon:
+  hidden: true
+sensor.weather_precip_intensity:
+  hidden: true
+sensor.weather_pressure:
+  hidden: true
+sensor.weather_temperature:
+  hidden: true
+sensor.weather_wind_bearing:
+  hidden: true
+sensor.weather_wind_speed:
+  hidden: true
+
 ##sun
 # hide the sun
 sun.sun:
