@@ -72,6 +72,8 @@ sensor.weather_icon:
   hidden: true
 sensor.weather_precip_intensity:
   hidden: true
+sensor.weather_precip_probability:
+  hidden: true
 sensor.weather_pressure:
   hidden: true
 sensor.weather_temperature:
