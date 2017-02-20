@@ -292,3 +292,29 @@ automation:
     action:
       service: homeassistant.turn_off
       entity_id: light.hue_lightstrip_1
+
+  # rule for coming home
+  - alias: Lights on when home
+    initial_state: true
+    hide_entity: false
+    trigger:
+      platform: state
+      entity_id: device_tracker.iansmcf_myphone
+      to: 'home'
+    action:
+      service: homeassistant.turn_on
+      entity_id: group.white_lights
+
+  # rule for leaving home
+  - alias: Lights off when not home
+    initial_state: true
+    hide_entity: false
+    trigger:
+      platform: state
+      entity_id: device_tracker.iansmcf_myphone
+      to: 'not home'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: group.white_lights
+      - service: homeassistant.turn_off
+        entity_id: switch.wemo_bedroom_switch
