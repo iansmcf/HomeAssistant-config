@@ -68,6 +68,7 @@ tts:
 light:
   platform: hue
   host: 192.168.88.32
+  allow_hue_groups: false
 
 # enable wemo component
 wemo:
@@ -160,12 +161,27 @@ zone 2:
 
 # group "white" lights
 group:
-  white_lights:
-    #friendly_name: Lights
+  default_view:
+    view: yes
     entities:
-      - light.kitchen
+      - group.white_lights
+      - media_player.roku4
+      - media_player.bedroom_speakers
+      - media_player.living_room_home
+      - switch.wemo_bedroom_switch
+  white_lights:
+    name: Lights
+    entities:
+      - group.warehouse_lights
       - light.hue_color_lamp_3
       - light.hue_color_lamp_4
+  warehouse_lights:
+    name: Warehouse Lights
+    view: no
+    icon: mdi:lightbulb
+    entities:
+      - light.hue_color_lamp_1
+      - light.hue_color_lamp_2
 
 # control "white" lights
 script:

@@ -1,16 +1,11 @@
 ## lights
 # hide individual hue lamps in the kitchen
 light.hue_color_lamp_1:
-  hidden: true
+  friendly_name: "Warehouse light 1"
+  #hidden: true
 light.hue_color_lamp_2:
-  hidden: true
-# declare the warehouse lights in the kitchen
-light.kitchen:
-  hidden: false
-  friendly_name: "Warehouse lights"
-# hide bedroom room
-light.bedroom:
-  hidden: true
+  friendly_name: "Warehouse light 2"
+  #hidden: true
 # declare bedroom lamp
 light.hue_color_lamp_3:
   hidden: false
@@ -24,17 +19,14 @@ light.hue_color_lamp_4:
 # declare desk lightstrip
 light.hue_lightstrip_1:
   friendly_name: "Desk lightstrip"
-  #hidden: true
+  hidden: true
 # declare bathroom lightstrip
 light.hue_lightstrip_2:
   friendly_name: "Bathroom nightlight"
   hidden: true
-# hide bathroom room
-light.bathroom:
-  hidden: true
-# hide living room room
-light.living_room:
-  hidden: true
+
+
+
 ##zwave
 # declare front door
 binary_sensor.ecolink_doorwindow_sensor_sensor_2_0:
