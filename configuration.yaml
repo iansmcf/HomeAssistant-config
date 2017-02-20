@@ -240,29 +240,55 @@ panel_iframe:
     url: !secret pihole_webpage
     icon: mdi:close-network
 
-# rule for turning off and on the bathroom nightlight based on motion detection
 automation:
-  alias: Turn on bathroom nightlight when motion is detected
-  initial_state: true
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
-    from: 'off'
-    to: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: light.hue_lightstrip_2
+  # rules for turning off and on the bathroom nightlight based on motion detection
+  - alias: Turn on bathroom nightlight when motion is detected
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: state
+      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+      from: 'off'
+      to: 'on'
+    action:
+      service: homeassistant.turn_on
+      entity_id: light.hue_lightstrip_2
 
-automation 2:
-  alias: Turn off bathroom nightlight when motion is not detected
-  initial_state: true
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
-    from: 'on'
-    to: 'off'
-  action:
-    service: homeassistant.turn_off
-    entity_id: light.hue_lightstrip_2
+  - alias: Turn off bathroom nightlight when motion is not detected
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: state
+      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+      from: 'on'
+      to: 'off'
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.hue_lightstrip_2
+
+  # rules for turning on the lightstrip when computer is running
+  - alias: Turn on the desk lightstrip when power usage of the computer outlet exceeds 25,000 milliwatt-hours
+    initial_state: true
+    hide_entity: false
+    condition:
+      condition: template
+      value_template: '{{ states.switch.computer_outlet.attributes.current_power_mwh > 25000 }}'
+    trigger:
+      platform: time
+      seconds: '/10'
+    action:
+      service: homeassistant.turn_on
+      entity_id: light.hue_lightstrip_1
+
+  - alias: Turn off the desk lightstrip when power usage of the computer outlet is under 25,000 milliwatt-hours
+    initial_state: true
+    hide_entity: false
+    condition:
+      condition: template
+      value_template: '{{ states.switch.computer_outlet.attributes.current_power_mwh < 25000 }}'
+    trigger:
+      platform: time
+      seconds: '/9'
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.hue_lightstrip_1
