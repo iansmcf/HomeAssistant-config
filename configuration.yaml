@@ -275,7 +275,7 @@ automation:
       value_template: '{{ states.switch.computer_outlet.attributes.current_power_mwh > 25000 }}'
     trigger:
       platform: time
-      seconds: '/10'
+      seconds: '/5'
     action:
       service: homeassistant.turn_on
       entity_id: light.hue_lightstrip_1
@@ -288,7 +288,7 @@ automation:
       value_template: '{{ states.switch.computer_outlet.attributes.current_power_mwh < 25000 }}'
     trigger:
       platform: time
-      seconds: '/9'
+      seconds: '/5'
     action:
       service: homeassistant.turn_off
       entity_id: light.hue_lightstrip_1
