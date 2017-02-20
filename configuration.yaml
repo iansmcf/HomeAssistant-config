@@ -269,7 +269,7 @@ automation:
   # rules for turning on the lightstrip when computer is running
   - alias: Turn on the desk lightstrip when power usage of the computer outlet exceeds 25,000 milliwatt-hours
     initial_state: true
-    hide_entity: false
+    hide_entity: true
     condition:
       condition: template
       value_template: '{{ states.switch.computer_outlet.attributes.current_power_mwh > 25000 }}'
@@ -282,7 +282,7 @@ automation:
 
   - alias: Turn off the desk lightstrip when power usage of the computer outlet is under 25,000 milliwatt-hours
     initial_state: true
-    hide_entity: false
+    hide_entity: true
     condition:
       condition: template
       value_template: '{{ states.switch.computer_outlet.attributes.current_power_mwh < 25000 }}'
