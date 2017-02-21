@@ -268,7 +268,7 @@ automation:
 
   # rules for turning on the lightstrip when computer is running
   - alias: Turn on the desk lightstrip when power usage of the computer outlet exceeds 25,000 milliwatt-hours
-    initial_state: true
+    initial_state: false
     hide_entity: true
     condition:
       condition: template
@@ -281,7 +281,7 @@ automation:
       entity_id: light.hue_lightstrip_1
 
   - alias: Turn off the desk lightstrip when power usage of the computer outlet is under 25,000 milliwatt-hours
-    initial_state: true
+    initial_state: false
     hide_entity: true
     condition:
       condition: template
@@ -296,10 +296,11 @@ automation:
   # rule for coming home
   - alias: Lights on when home
     initial_state: true
-    hide_entity: false
+    hide_entity: true
     trigger:
       platform: state
       entity_id: device_tracker.iansmcf_myphone
+      from: 'not home'
       to: 'home'
     action:
       service: homeassistant.turn_on
@@ -308,10 +309,11 @@ automation:
   # rule for leaving home
   - alias: Lights off when not home
     initial_state: true
-    hide_entity: false
+    hide_entity: true
     trigger:
       platform: state
       entity_id: device_tracker.iansmcf_myphone
+      from: 'home'
       to: 'not home'
     action:
       - service: homeassistant.turn_off
