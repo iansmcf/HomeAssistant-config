@@ -109,6 +109,22 @@ mqtt:
     qos: 1
     retain: true
 
+# add flux for changing lighting colors based on time
+switch:
+  platform: flux
+  lights:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+    - light.hue_color_lamp_4
+  name: flux
+  start_time: '6:30'
+  stop_time: '23:00'
+  start_colortemp: 4000
+  sunset_colortemp: 3000
+  stop_colortemp: 1900
+  #brightness: 255
+
 # my computer
 #device_tracker:
 #  - platform: ping
@@ -169,6 +185,7 @@ group:
       - media_player.bedroom_speakers
       - media_player.living_room_home
       - switch.wemo_bedroom_switch
+      - switch.flux
   white_lights:
     name: Lights
     entities:
