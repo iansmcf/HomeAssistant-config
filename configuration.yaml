@@ -309,23 +309,23 @@ automation:
     initial_state: true
     hide_entity: true
     trigger:
-      platform: state
+      platform: zone
       entity_id: device_tracker.iansmcf_myphone
-      from: 'not home'
-      to: 'home'
+      zone: zone.home
+      event: enter
     action:
-      service: homeassistant.turn_on
-      entity_id: group.white_lights
+      - service: homeassistant.turn_on
+        entity_id: group.white_lights
 
   # rule for leaving home
   - alias: Lights off when not home
     initial_state: true
     hide_entity: true
     trigger:
-      platform: state
+      platform: zone
       entity_id: device_tracker.iansmcf_myphone
-      from: 'home'
-      to: 'not home'
+      zone: zone.home
+      event: leave
     action:
       - service: homeassistant.turn_off
         entity_id: group.white_lights
