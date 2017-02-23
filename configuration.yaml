@@ -41,6 +41,10 @@ logbook:
 sun:
 
 
+# Ecobee
+ecobee:
+  api_key: _REDACTED_
+
 # Weather Prediction
 sensor:
   - platform: yr
