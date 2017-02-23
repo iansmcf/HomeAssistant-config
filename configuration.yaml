@@ -309,7 +309,7 @@ automation:
       entity_id: light.hue_lightstrip_1
 
   # rule for coming home
-  - alias: Lights on when home
+  - alias: Lights and A/C on when home
     initial_state: true
     hide_entity: true
     trigger:
@@ -320,9 +320,13 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: group.white_lights
+      - service: climate.set_hold_mode
+        entity_id: climate.my_ecobee
+        data:
+          hold_mode: home
 
   # rule for leaving home
-  - alias: Lights off when not home
+  - alias: Lights and A/C off when not home
     initial_state: true
     hide_entity: true
     trigger:
@@ -335,3 +339,7 @@ automation:
         entity_id: group.white_lights
       - service: homeassistant.turn_off
         entity_id: switch.wemo_bedroom_switch
+      - service: climate.set_hold_mode
+        entity_id: climate.my_ecobee
+        data:
+          hold_mode: away
