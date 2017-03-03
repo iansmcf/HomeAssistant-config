@@ -72,7 +72,7 @@ tts:
 light:
   platform: hue
   host: 192.168.88.32
-  allow_hue_groups: false
+  allow_hue_groups: true
 
 # enable wemo component
 wemo:
@@ -117,16 +117,15 @@ mqtt:
 switch:
   platform: flux
   lights:
-    - light.hue_color_lamp_1
-    - light.hue_color_lamp_2
-    - light.hue_color_lamp_3
-    - light.hue_color_lamp_4
+    - light.warehouse_lights
+    - light.living_room_lamp
+    - light.bedroom_lamp
   name: flux
   start_time: '6:30'
-  stop_time: '23:00'
+  stop_time: '1:00'
   start_colortemp: 4000
   sunset_colortemp: 3000
-  stop_colortemp: 1900
+  stop_colortemp: 2100
   #brightness: 255
 
 # my computer
@@ -193,16 +192,9 @@ group:
   white_lights:
     name: Lights
     entities:
-      - group.warehouse_lights
-      - light.hue_color_lamp_3
-      - light.hue_color_lamp_4
-  warehouse_lights:
-    name: Warehouse Lights
-    view: no
-    icon: mdi:lightbulb
-    entities:
-      - light.hue_color_lamp_1
-      - light.hue_color_lamp_2
+      - light.warehouse_lights
+      - light.living_room_lamp
+      - light.bedroom_lamp
 
 # control "white" lights
 script:
@@ -273,7 +265,7 @@ automation:
       to: 'on'
     action:
       service: homeassistant.turn_on
-      entity_id: light.hue_lightstrip_2
+      entity_id: light.bathroom_lightstrip
 
   - alias: Turn off bathroom nightlight when motion is not detected
     initial_state: true
@@ -285,7 +277,7 @@ automation:
       to: 'off'
     action:
       service: homeassistant.turn_off
-      entity_id: light.hue_lightstrip_2
+      entity_id: light.bathroom_lightstrip
 
   # rules for turning on the lightstrip when computer is running
   - alias: Turn on the desk lightstrip when outlet draws 25W or more
@@ -296,7 +288,7 @@ automation:
       value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_mwh > 25000 }}{% endif %}'
     action:
       service: homeassistant.turn_on
-      entity_id: light.hue_lightstrip_1
+      entity_id: light.desk_lightstrip
 
   - alias: Turn off the desk lightstrip when outlet draws 25W or less
     initial_state: true
@@ -306,7 +298,7 @@ automation:
       value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_mwh < 25000 }}{% endif %}'
     action:
       service: homeassistant.turn_off
-      entity_id: light.hue_lightstrip_1
+      entity_id: light.desk_lightstrip
 
   # rule for coming home
   - alias: Lights and A/C on when home

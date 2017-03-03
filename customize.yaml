@@ -1,30 +1,24 @@
 ## lights
-# hide individual hue lamps in the kitchen
+# hide individual hue lights
 light.hue_color_lamp_1:
-  friendly_name: "Warehouse light 1"
-  #hidden: true
+  hidden: true
 light.hue_color_lamp_2:
-  friendly_name: "Warehouse light 2"
-  #hidden: true
-# declare bedroom lamp
+  hidden: true
 light.hue_color_lamp_3:
-  hidden: false
-  friendly_name: "Bedroom lamp"
-  icon: mdi:lamp
-# declare living room lamp
+  hidden: true
 light.hue_color_lamp_4:
-  hidden: false
-  friendly_name: "Living room lamp"
-  icon: mdi:lamp
-# declare desk lightstrip
+  hidden: true
 light.hue_lightstrip_1:
-  friendly_name: "Desk lightstrip"
   hidden: true
-# declare bathroom lightstrip
 light.hue_lightstrip_2:
-  friendly_name: "Bathroom nightlight"
   hidden: true
-
+# pick icons for lights
+light.living_room_lamp:
+  hidden: false
+  icon: mdi:lamp
+light.bedroom_lamp:
+  hidden: false
+  icon: mdi:lamp
 
 
 ##zwave
