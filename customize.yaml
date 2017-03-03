@@ -2,23 +2,41 @@
 # hide individual hue lights
 light.hue_color_lamp_1:
   hidden: true
+  emulated_hue: false
 light.hue_color_lamp_2:
   hidden: true
+  emulated_hue: false
 light.hue_color_lamp_3:
   hidden: true
+  emulated_hue: false
 light.hue_color_lamp_4:
   hidden: true
+  emulated_hue: false
 light.hue_lightstrip_1:
   hidden: true
+  emulated_hue: false
 light.hue_lightstrip_2:
   hidden: true
-# pick icons for lights
+  emulated_hue: false
+# define light groups
 light.living_room_lamp:
   hidden: false
   icon: mdi:lamp
+  emulated_hue: true
 light.bedroom_lamp:
   hidden: false
   icon: mdi:lamp
+  emulated_hue: true
+light.bathroom_lightstrip:
+  hidden: true
+  emulated_hue: false
+light.desk_lightstrip:
+  hidden: true
+  emulated_hue: false
+light.warehouse_lights:
+  hidden: false
+  emulated_hue: true
+
 
 
 ##zwave
@@ -81,11 +99,14 @@ switch.wemo_bedroom_switch:
   hidden: false
   icon: mdi:fan
   friendly_name: Air filter
+  # enable control by google home
+  emulated_hue: true
 
 #customize computer outlet
 switch.computer_outlet:
   hidden: true
   friendly_name: Computer outlet
+  emulated_hue: false
 
 ##customize scripts
 script.daytime_light:

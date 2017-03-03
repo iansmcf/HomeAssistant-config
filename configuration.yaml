@@ -62,6 +62,13 @@ sensor:
       - apparent_temperature
       - icon
 
+emulated_hue:
+  type: google_home
+  listen_port: 80
+  expose_by_default: true
+  exposed_domains:
+    - switch
+    - light
 
 # Text to speech
 tts:
