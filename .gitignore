@@ -21,3 +21,5 @@ pyozw.sqlite
 !/.gitignore
 zwscene.xml
 hass_restart
+emulated_hue*
+log
