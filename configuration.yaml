@@ -135,6 +135,16 @@ switch:
   stop_colortemp: 2100
   #brightness: 255
 
+switch 2:
+  platform: broadlink
+  host: 192.168.88.34
+  mac: !secret broadlink_MAC
+  switches:
+    television:
+      friendly_name: "TV power"
+      command_on: 'JgBQAAABKJQSFBITEjgSExITEhQRFBITEjgSOBIUETkSOBI4EjkSOBITEhMSFBE5EhMSExITEhMSORI4EjgSExI5EjgSOBI4EgAFCQABJ0sSAA0FAAAAAAAAAAA='
+      command_off: 'AAAAbQAiAAIBVwCsABUAFgAVABYAFQBBABUAFgAVABYAFQAWABUAFgAVABYAFQBBABUAQQAVABYAFQBBABUAQQAVAEEAFQBBABUAQQAVAEEAFQAWABUAQQAVABYAFQAWABUAQQAVABYAFQAWABUAFgAVAEEAFQAWABUAQQAVAEEAFQAWABUAQQAVAEEAFQaJAVcAVgAVDpQ='
+
 # my computer
 #device_tracker:
 #  - platform: ping
@@ -196,6 +206,8 @@ group:
       - media_player.living_room_home
       - switch.wemo_bedroom_switch
       - switch.flux
+      - climate.my_ecobee
+      - switch.broadlink
   white_lights:
     name: Lights
     entities:
