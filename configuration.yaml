@@ -169,11 +169,10 @@ input_select:
   light_mode:
     name: Light mode
     options:
-      - Morning
-      - Daytime
-      - Evening
-      - Bedtime
-    initial: Daytime
+      - Normal
+      - Circadian
+      - Media
+    initial: Normal
     icon: mdi:white-balance-sunny
 
 
