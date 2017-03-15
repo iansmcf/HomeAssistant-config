@@ -254,8 +254,8 @@ script:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
-          color_temp: 350
-          brightness: 200
+          color_temp: 400
+          brightness: 150
 
 
 # Test configuration: add an empty webpage to the sidebar
