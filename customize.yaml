@@ -109,11 +109,3 @@ switch.computer_outlet:
   emulated_hue: false
 
 ##customize scripts
-script.daytime_light:
-  hidden: true
-script.morning_light:
-  hidden: true
-script.evening_light:
-  hidden: true
-script.bedtime_light:
-  hidden: true

@@ -204,6 +204,7 @@ group:
       #- switch.flux
       - climate.my_ecobee
       - switch.tv_power
+      - input_select.light_mode
   white_lights:
     name: Lights
     entities:
@@ -228,32 +229,28 @@ group:
 
 # control "white" lights
 script:
-  # bedtime
-  bedtime_light:
+  # media_lights - when watching TV
+  media_light:
     sequence:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
           color_temp: 500
-          brightness: 120
-  # morning
-  morning_light:
-    sequence:
-      - service: light.turn_on
-        entity_id: group.white_lights
-        data:
-          color_temp: 160
-          brightness: 255
-  # daytime
-  daytime_light:
+          brightness: 60
+      # turn off desk lightstrip
+      - service: light.turn_off
+        entity_id: light.desk_lightstrip
+  # normal light - a warm, white light suitable for most times of day
+  normal_light:
     sequence:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
           color_temp: 280
           brightness: 255
-  # evening
-  evening_light:
+  # circadian light - attempt to match light temperature to time of day
+  # TODO: Make this functional somehow.
+  circadian_light:
     sequence:
       - service: light.turn_on
         entity_id: group.white_lights
@@ -319,6 +316,16 @@ automation:
     action:
       service: homeassistant.turn_on
       entity_id: light.desk_lightstrip
+    # suppress if in Media mode
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: input_select.light_mode
+          state: 'Normal'
+        - condition: state
+          entity_id: input_select.light_mode
+          state: 'Circadian'
 
   - alias: Turn off the desk lightstrip when outlet draws 25W or less
     initial_state: true
