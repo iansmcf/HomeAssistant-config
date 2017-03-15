@@ -200,11 +200,10 @@ group:
     view: yes
     entities:
       - group.white_lights
+      - input_select.light_mode
       - switch.wemo_bedroom_switch
-      #- switch.flux
       - climate.my_ecobee
       - switch.tv_power
-      - input_select.light_mode
   white_lights:
     name: Lights
     entities:
