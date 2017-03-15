@@ -28,10 +28,10 @@ light.bedroom_lamp:
   icon: mdi:lamp
   emulated_hue: true
 light.bathroom_lightstrip:
-  hidden: true
+  hidden: false
   emulated_hue: false
 light.desk_lightstrip:
-  hidden: true
+  hidden: false
   emulated_hue: false
 light.warehouse_lights:
   hidden: false
@@ -46,7 +46,7 @@ binary_sensor.ecolink_doorwindow_sensor_sensor_2_0:
   friendly_name: "Front door sensor"
 # declare bathroom motion
 binary_sensor.ecolink_pir_motion_sensor_sensor_3_0:
-  hidden: true
+  hidden: false
   friendly_name: "Bathroom motion"
 # hide everything else
 sensor.ecolink_doorwindow_sensor_alarm_level_2_1:
@@ -104,7 +104,7 @@ switch.wemo_bedroom_switch:
 
 #customize computer outlet
 switch.computer_outlet:
-  hidden: true
+  hidden: false
   friendly_name: Computer outlet
   emulated_hue: false
 

@@ -121,18 +121,18 @@ mqtt:
     retain: true
 
 # add flux for changing lighting colors based on time
-switch:
-  platform: flux
-  lights:
-    - light.warehouse_lights
-    - light.living_room_lamp
-    - light.bedroom_lamp
-  name: flux
-  start_time: '6:30'
-  stop_time: '1:00'
-  start_colortemp: 4000
-  sunset_colortemp: 3000
-  stop_colortemp: 2100
+#switch:
+#  platform: flux
+#  lights:
+#    - light.warehouse_lights
+#    - light.living_room_lamp
+#    - light.bedroom_lamp
+#  name: flux
+#  start_time: '6:30'
+#  stop_time: '1:00'
+#  start_colortemp: 4000
+#  sunset_colortemp: 3000
+#  stop_colortemp: 2100
   #brightness: 255
 
 switch 2:
@@ -201,19 +201,31 @@ group:
     view: yes
     entities:
       - group.white_lights
-      - media_player.roku4
-      - media_player.bedroom_speakers
-      - media_player.living_room_home
       - switch.wemo_bedroom_switch
-      - switch.flux
+      #- switch.flux
       - climate.my_ecobee
-      - switch.broadlink
+      - switch.tv_power
   white_lights:
     name: Lights
     entities:
       - light.warehouse_lights
       - light.living_room_lamp
       - light.bedroom_lamp
+  media_control:
+    view: yes
+    name: Media
+    entities:
+      - media_player.roku4
+      - media_player.bedroom_speakers
+      - media_player.living_room_home
+  debug:
+    view: yes
+    name: Debug
+    entities:
+      - light.hue_lightstrip_1
+      - light.hue_lightstrip_2
+      - switch.computer_outlet
+      - binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
 
 # control "white" lights
 script:
