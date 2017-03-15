@@ -222,8 +222,8 @@ group:
     view: yes
     name: Debug
     entities:
-      - light.hue_lightstrip_1
-      - light.hue_lightstrip_2
+      - light.bathroom_lightstrip
+      - light.desk_lightstrip
       - switch.computer_outlet
       - binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
 
