@@ -375,33 +375,33 @@ automation:
 
   # automation rule for entering normal light mode
   - alias: Enter 'Normal' light mode
-  initial_state: true
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: input_select.light_mode
-    state: 'Normal'
-  action:
-    - service: script.normal_light
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      state: 'Normal'
+    action:
+      - service: script.normal_light
 
   # automation rule for entering circadian light mode
   - alias: Enter 'Circadian' light mode
-  initial_state: true
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: input_select.light_mode
-    state: 'Circadian'
-  action:
-    - service: script.circadian_light
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      state: 'Circadian'
+    action:
+      - service: script.circadian_light
 
   # automation rule for entering media light mode
   - alias: Enter 'Media' light mode
-  initial_state: true
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: input_select.light_mode
-    state: 'Media'
-  action:
-    - service: script.media_light
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      state: 'Media'
+    action:
+      - service: script.media_light
