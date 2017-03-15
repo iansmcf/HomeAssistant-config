@@ -236,7 +236,7 @@ script:
         entity_id: group.white_lights
         data:
           color_temp: 500
-          brightness: 60
+          brightness: 100
       # turn off desk lightstrip
       - service: light.turn_off
         entity_id: light.desk_lightstrip
@@ -247,7 +247,7 @@ script:
         entity_id: group.white_lights
         data:
           color_temp: 280
-          brightness: 255
+          brightness: 450
   # circadian light - attempt to match light temperature to time of day
   # TODO: Make this functional somehow.
   circadian_light:
@@ -372,3 +372,36 @@ automation:
         entity_id: climate.my_ecobee
         data:
           hold_mode: away
+
+  # automation rule for entering normal light mode
+  - alias: Enter 'Normal' light mode
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.light_mode
+    state: 'Normal'
+  action:
+    - service: script.normal_light
+
+  # automation rule for entering circadian light mode
+  - alias: Enter 'Circadian' light mode
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.light_mode
+    state: 'Circadian'
+  action:
+    - service: script.circadian_light
+
+  # automation rule for entering media light mode
+  - alias: Enter 'Media' light mode
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.light_mode
+    state: 'Media'
+  action:
+    - service: script.media_light
