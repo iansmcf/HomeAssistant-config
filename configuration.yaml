@@ -225,6 +225,12 @@ group:
       - media_player.roku4
       - media_player.bedroom_speakers
       - media_player.living_room_home
+  info:
+    view: yes
+    name: info
+    entities:
+      - sensor.fedex_packages
+      - sensor.ups_packages
   debug:
     view: yes
     name: Debug
