@@ -117,3 +117,5 @@ switch.computer_outlet:
   emulated_hue: false
 
 ##customize scripts
+script.enable_media_mode:
+  hidden: true

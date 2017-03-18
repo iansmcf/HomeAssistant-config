@@ -237,6 +237,13 @@ script:
         data:
           color_temp: 400
           brightness: 150
+  # script to use with HAdashboard to enable media mode
+  enable_media_mode:
+    sequence:
+      - service: input_select.select_option
+        entity_id: input_select.light_mode
+        data:
+          option: Media
 
 
 # Test configuration: add an empty webpage to the sidebar
