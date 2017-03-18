@@ -35,15 +35,15 @@ debug:
     - binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
 
 # create individual light groups for use with HAdashboard
-  living_room_lamp:
-    view: No
-    entities:
-      - light.living_room_lamp
-  bedroom_lamp:
-    view: No
-    entities:
-      - light.bedroom_lamp
-  warehouse_lights:
-    view: No
-    entities:
-      - light.warehouse_lights
+living_room_lamp:
+  view: No
+  entities:
+    - light.living_room_lamp
+bedroom_lamp:
+  view: No
+  entities:
+    - light.bedroom_lamp
+warehouse_lights:
+  view: No
+  entities:
+    - light.warehouse_lights
