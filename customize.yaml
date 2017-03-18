@@ -37,6 +37,14 @@ light.warehouse_lights:
   hidden: false
   emulated_hue: true
 
+# hide HAdashboard grouped light entities
+group.warehouse_lights:
+  hidden: true
+group.bedroom_lamp:
+  hidden: true
+group.living_room_lamp:
+  hidden: true
+
 
 
 ##zwave

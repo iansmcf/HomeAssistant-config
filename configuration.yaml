@@ -202,43 +202,7 @@ zone 2:
   # Set icon to material design icon, briefcase
   icon: mdi:briefcase
 
-# group "white" lights
-group:
-  default_view:
-    view: yes
-    entities:
-      - group.white_lights
-      - input_select.light_mode
-      - switch.wemo_bedroom_switch
-      - climate.my_ecobee
-      - switch.tv_power
-  white_lights:
-    name: Lights
-    entities:
-      - light.warehouse_lights
-      - light.living_room_lamp
-      - light.bedroom_lamp
-  media_control:
-    view: yes
-    name: Media
-    entities:
-      - media_player.roku4
-      - media_player.bedroom_speakers
-      - media_player.living_room_home
-  info:
-    view: yes
-    name: info
-    entities:
-      - sensor.fedex_packages
-      - sensor.ups_packages
-  debug:
-    view: yes
-    name: Debug
-    entities:
-      - light.bathroom_lightstrip
-      - light.desk_lightstrip
-      - switch.computer_outlet
-      - binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+group: !include group.yaml
 
 # control "white" lights
 script:
