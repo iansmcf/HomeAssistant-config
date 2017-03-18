@@ -16,6 +16,9 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+# add config panel to frontend
+config:
+
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_password
