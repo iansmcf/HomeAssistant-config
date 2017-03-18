@@ -119,3 +119,5 @@ switch.computer_outlet:
 ##customize scripts
 script.enable_media_mode:
   hidden: true
+script.enable_normal_mode:
+  hidden: true

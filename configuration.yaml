@@ -244,7 +244,13 @@ script:
         entity_id: input_select.light_mode
         data:
           option: Media
-
+  # script to use with HAdashboard to enable normal mode
+  enable_normal_mode:
+    sequence:
+      - service: input_select.select_option
+        entity_id: input_select.light_mode
+        data:
+          option: Normal
 
 # Test configuration: add an empty webpage to the sidebar
 #panel_custom:
