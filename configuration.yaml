@@ -235,7 +235,7 @@ script:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
-          color_temp: 400
+          color_temp: 335
           brightness: 150
   # script to use with HAdashboard to enable media mode
   enable_media_mode:
