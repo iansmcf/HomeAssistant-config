@@ -5,6 +5,7 @@ default_view:
     - input_select.light_mode
     - switch.wemo_bedroom_switch
     - climate.my_ecobee
+    - input_select.media_control
 white_lights:
   name: Lights
   entities:

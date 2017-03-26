@@ -150,7 +150,7 @@ switch 2:
   platform: broadlink
   host: 192.168.88.34
   mac: !secret broadlink_MAC
-  
+
 # my computer
 #device_tracker:
 #  - platform: ping
@@ -180,6 +180,14 @@ input_select:
       - Media
     #initial: Normal
     icon: mdi:white-balance-sunny
+  media_center:
+    name: Media center
+    options:
+      - Power off
+      - Roku
+      - Computer
+      - Switch
+    icon: mdi:remote
 
 
 zone:
