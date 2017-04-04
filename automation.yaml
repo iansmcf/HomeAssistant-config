@@ -30,7 +30,7 @@
   hide_entity: true
   trigger:
     platform: template
-    value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_mwh > 25000 }}{% endif %}'
+    value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_w > 25 }}{% endif %}'
   action:
     service: homeassistant.turn_on
     entity_id: light.desk_lightstrip
@@ -49,7 +49,7 @@
   hide_entity: true
   trigger:
     platform: template
-    value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_mwh < 25000 }}{% endif %}'
+    value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_w < 25 }}{% endif %}'
   action:
     service: homeassistant.turn_off
     entity_id: light.desk_lightstrip
@@ -123,4 +123,4 @@
     - service: script.media_light
 
 ## rules for media_control input_select
-# automation rule 
+# automation rule
