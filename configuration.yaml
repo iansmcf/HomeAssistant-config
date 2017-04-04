@@ -229,7 +229,7 @@ script:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
-          color_temp: 280
+          color_temp: 335
           brightness: 450
   # circadian light - attempt to match light temperature to time of day
   # TODO: Make this functional somehow.
@@ -238,7 +238,7 @@ script:
       - service: light.turn_on
         entity_id: group.white_lights
         data:
-          color_temp: 335
+          color_temp: 400
           brightness: 150
   # script to use with HAdashboard to enable media mode
   enable_media_mode:
