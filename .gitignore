@@ -24,3 +24,6 @@ hass_restart
 emulated_hue*
 log
 ir_codes.yaml
+on.ir
+*.pickle
+ir_cap.py
