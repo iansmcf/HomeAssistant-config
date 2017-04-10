@@ -20,6 +20,7 @@ media_control:
     - media_player.bedroom_speakers
     - media_player.living_room_home
     - input_select.tv_power
+    - input_select.media_center
 info:
   view: yes
   name: info
