@@ -110,6 +110,13 @@ switch.wemo_bedroom_switch:
   # enable control by google home
   emulated_hue: true
 
+switch.tv_outlet:
+  hidden: true
+  icon: mdi:tv
+  frienly_name: TV power
+  # disable control by google home
+  emulated_hue: false
+
 #customize computer outlet
 switch.computer_outlet:
   hidden: false

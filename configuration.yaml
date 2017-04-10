@@ -97,6 +97,7 @@ wemo:
   static:
     - 192.168.88.20
     - 192.168.88.21
+    - 192.168.88.22
 
 
 media_player:
@@ -188,6 +189,12 @@ input_select:
       - Computer
       - Switch
     icon: mdi:remote
+  tv_power:
+    name: TV
+    options:
+      - On
+      - Off
+    icon: mdi:tv
 
 
 zone:
@@ -254,6 +261,30 @@ script:
         entity_id: input_select.light_mode
         data:
           option: Normal
+  # script to turn the TV on
+  # must also send power toggle command to the HDMI switch
+  tv_on:
+    sequence:
+      # only if TV isn't already on
+      - condition: template
+        value_template:  '{{true}}' # TODO: based on current power use of switch.tv_outlet
+      - service: broadlink.send_packet_192_168_88_34
+        data:
+          packet:
+            - !secret ir_toggle_hdmi_switch_power
+            - !secret ir_toggle_tv_power
+  # script to turn the TV off
+  # must also send power toggle command to the HDMI switch
+  tv_off:
+    sequence:
+      # only if TV isn't already off
+      - condition: template
+        value_template:  '{{true}}' # TODO: based on current power use of switch.tv_outlet
+      - service: broadlink.send_packet_192_168_88_34
+        data:
+          packet:
+            - !secret ir_toggle_hdmi_switch_power
+            - !secret ir_toggle_tv_power
 
 # Test configuration: add an empty webpage to the sidebar
 #panel_custom:

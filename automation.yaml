@@ -124,3 +124,26 @@
 
 ## rules for media_control input_select
 # automation rule
+
+
+## rules for tv_power input_select
+# automation rule for TV power on
+- alias: Turn on the TV
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.tv_power
+    state: 'On'
+  action:
+    - service: script.tv_on
+# automation rule for TV power off
+- alias: Turn off the TV
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.tv_power
+    state: 'Off'
+  action:
+    - service: script.tv_off
