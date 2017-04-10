@@ -184,16 +184,16 @@ input_select:
   media_center:
     name: Media center
     options:
-      - Power off
-      - Roku
-      - Computer
-      - Switch
+      - "Power off"
+      - "Roku"
+      - "Computer"
+      - "Switch"
     icon: mdi:remote
   tv_power:
     name: TV
     options:
-      - On
-      - Off
+      - "On"
+      - "Off"
     icon: mdi:tv
 
 
@@ -267,7 +267,7 @@ script:
     sequence:
       # only if TV isn't already on
       - condition: template
-        value_template:  '{{true}}' # TODO: based on current power use of switch.tv_outlet
+        value_template:  '{% if states.switch.tv_outlet.state %}{{ states.switch.tv_outlet.attributes.current_power_w < 8 }}{% endif %}'
       - service: broadlink.send_packet_192_168_88_34
         data:
           packet:
@@ -279,7 +279,7 @@ script:
     sequence:
       # only if TV isn't already off
       - condition: template
-        value_template:  '{{true}}' # TODO: based on current power use of switch.tv_outlet
+        value_template:  '{% if states.switch.tv_outlet.state %}{{ states.switch.tv_outlet.attributes.current_power_w > 8 }}{% endif %}'
       - service: broadlink.send_packet_192_168_88_34
         data:
           packet:
