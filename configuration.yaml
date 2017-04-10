@@ -176,9 +176,9 @@ input_select:
   light_mode:
     name: Light mode
     options:
-      - Normal
-      - Circadian
-      - Media
+      - "Normal"
+      - "Circadian"
+      - "Media"
     #initial: Normal
     icon: mdi:white-balance-sunny
   media_center:
