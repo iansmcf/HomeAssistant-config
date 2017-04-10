@@ -122,9 +122,68 @@
   action:
     - service: script.media_light
 
-## rules for media_control input_select
-# automation rule
-
+## rules for media_center input_select
+# automation rule for power off
+- alias: Turn off the media center
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.media_center
+    state: "Power off"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_power
+        option: "Off"
+# automation rule for roku
+- alias: Turn media center on, switch to Roku
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.media_center
+    state: "Roku"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_power
+        option: "On"
+    - service: broadlink.send_packet_192_168_88_34
+      data:
+        packet: !secret ir_switch_hdmi_out2
+# automation rule for computer
+- alias: Turn media center on, switch to computer
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.media_center
+    state: "Computer"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_power
+        option: "On"
+    - service: broadlink.send_packet_192_168_88_34
+      data:
+        packet: !secret ir_switch_hdmi_out3
+# automation rule for switch
+- alias: Turn media center on, switch to switch
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.media_center
+    state: "Switch"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_power
+        option: "On"
+    - service: broadlink.send_packet_192_168_88_34
+      data:
+        packet: !secret ir_switch_hdmi_out4
 
 ## rules for tv_power input_select
 # automation rule for TV power on
