@@ -151,7 +151,8 @@
         option: "On"
     - service: broadlink.send_packet_192_168_88_34
       data:
-        packet: !secret ir_switch_hdmi_out2
+        packet:
+          - !secret ir_switch_hdmi_out2
 # automation rule for computer
 - alias: Turn media center on, switch to computer
   initial_state: true
@@ -167,7 +168,8 @@
         option: "On"
     - service: broadlink.send_packet_192_168_88_34
       data:
-        packet: !secret ir_switch_hdmi_out3
+        packet:
+          - !secret ir_switch_hdmi_out3
 # automation rule for switch
 - alias: Turn media center on, switch to switch
   initial_state: true
@@ -183,7 +185,8 @@
         option: "On"
     - service: broadlink.send_packet_192_168_88_34
       data:
-        packet: !secret ir_switch_hdmi_out4
+        packet:
+          - !secret ir_switch_hdmi_out4
 
 ## rules for tv_power input_select
 # automation rule for TV power on
