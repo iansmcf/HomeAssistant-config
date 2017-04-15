@@ -195,7 +195,12 @@ input_select:
       - "On"
       - "Off"
     icon: mdi:tv
-
+  guest_mode:
+    name: Guest mode
+    options:
+      - "Enabled"
+      - "Disabled"
+    icon: mdi:account-multiple-plus
 
 zone:
   name: Home
@@ -261,6 +266,19 @@ script:
         entity_id: input_select.light_mode
         data:
           option: Normal
+  # script to enable guest mode
+  enable_guest_mode:
+    sequence:
+      - service: input_select.select_option
+        entity_id: input_select.guest_mode
+        data:
+          option: "Enabled"
+  # script to disable guest mode
+  disable_guest_mode:
+    sequence:
+      - service: input_select.select_option
+        entity_id: input_select.guest_mode
+          option: "Disabled"
   # script to turn the TV on
   # must also send power toggle command to the HDMI switch
   tv_on:
