@@ -201,6 +201,7 @@ input_select:
       - "Enabled"
       - "Disabled"
     icon: mdi:account-multiple-plus
+    initial: "Disabled"
 
 zone:
   name: Home
