@@ -80,6 +80,11 @@
     entity_id: device_tracker.iansmcf_myphone
     zone: zone.home
     event: leave
+  # suppress if guest mode is on
+  condition:
+    condition: state
+    entity_id: input_select.guest_mode
+    state: "Disabled"
   action:
     - service: homeassistant.turn_off
       entity_id: group.white_lights
