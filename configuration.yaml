@@ -279,30 +279,35 @@ script:
     sequence:
       - service: input_select.select_option
         entity_id: input_select.guest_mode
+        data:
           option: "Disabled"
   # script to use with HAdashboard to turn off media center power
   media_center_off:
     sequence:
       - service: input_select.select_option
         entity_id: input_select.media_center
+        data:
           option: "Power off"
   # script to use with HAdashboard to switch media center to Roku
   media_center_roku:
     sequence:
       - service: input_select.select_option
         entity_id: input_select.media_center
+        data:
           option: "Roku"
   # script to use with HAdashboard to switch media center to Computer
   media_center_computer:
     sequence:
       - service: input_select.select_option
         entity_id: input_select.media_center
+        data:
           option: "Computer"
   # script to use with HAdashboard to switch media center to Switch
   media_center_switch:
     sequence:
       - service: input_select.select_option
         entity_id: input_select.media_center
+        data:
           option: "Switch"
 
   # script to turn the TV on
