@@ -208,6 +208,15 @@ input_select:
       - "Disabled"
     icon: mdi:account-multiple-plus
     initial: "Disabled"
+  cleaning_mode:
+    name: "Cleaning mode"
+    options:
+      - "Off"
+      - "At work"
+    icon: mdi:broom
+    initial: "At work"
+#  clean_next:
+#    name: ""
 
 zone:
   name: Home
