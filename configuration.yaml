@@ -147,6 +147,12 @@ mqtt:
 #  stop_colortemp: 2100
   #brightness: 255
 
+switch:
+  - platform: mirobo
+    name: 'Mi robot'
+    host: !secret xiaomi_ip
+    token: !secret xiaomi_encryption
+
 switch 2:
   platform: broadlink
   host: 192.168.88.34
