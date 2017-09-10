@@ -5,7 +5,7 @@
   hide_entity: true
   trigger:
     - platform: state
-      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
       from: 'off'
       to: 'on'
   action:
@@ -16,7 +16,7 @@
   hide_entity: true
   trigger:
     - platform: state
-      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
       from: 'on'
       to: 'off'
   action:
