@@ -4,24 +4,24 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
-    from: 'off'
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+      from: 'off'
+      to: 'on'
   action:
-    service: homeassistant.turn_on
-    entity_id: light.bathroom_lightstrip
+    - service: homeassistant.turn_on
+      entity_id: light.bathroom_lightstrip
 - alias: Turn off bathroom nightlight when motion is not detected
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
-    from: 'on'
-    to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor_3_0
+      from: 'on'
+      to: 'off'
   action:
-    service: homeassistant.turn_off
-    entity_id: light.bathroom_lightstrip
+    - service: homeassistant.turn_off
+      entity_id: light.bathroom_lightstrip
 
 ## desk_lightstrip on/off with power on outlet
 # rules for turning on the lightstrip when computer is running
@@ -29,11 +29,11 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: template
-    value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_w > 25 }}{% endif %}'
+    - platform: template
+      value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_w > 25 }}{% endif %}'
   action:
-    service: homeassistant.turn_on
-    entity_id: light.desk_lightstrip
+    - service: homeassistant.turn_on
+      entity_id: light.desk_lightstrip
   # suppress if in Media mode
   condition:
     condition: or
@@ -48,11 +48,11 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: template
-    value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_w < 25 }}{% endif %}'
+    - platform: template
+      value_template: '{% if states.switch.computer_outlet.state %}{{ states.switch.computer_outlet.attributes.current_power_w < 25 }}{% endif %}'
   action:
-    service: homeassistant.turn_off
-    entity_id: light.desk_lightstrip
+    - service: homeassistant.turn_off
+      entity_id: light.desk_lightstrip
 
 ## coming home and leaving home
 # rule for coming home
@@ -60,10 +60,10 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: zone
-    entity_id: device_tracker.iansmcf_myphone
-    zone: zone.home
-    event: enter
+    - platform: zone
+      entity_id: device_tracker.iansmcf_myphone
+      zone: zone.home
+      event: enter
   action:
     - service: homeassistant.turn_on
       entity_id: group.white_lights
@@ -76,10 +76,10 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: zone
-    entity_id: device_tracker.iansmcf_myphone
-    zone: zone.home
-    event: leave
+    - platform: zone
+      entity_id: device_tracker.iansmcf_myphone
+      zone: zone.home
+      event: leave
   # suppress if guest mode is on
   condition:
     condition: state
@@ -101,9 +101,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.light_mode
-    state: 'Normal'
+    - platform: state
+      entity_id: input_select.light_mode
+      state: 'Normal'
   action:
     - service: script.normal_light
 # automation rule for entering circadian light mode
@@ -111,9 +111,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.light_mode
-    state: 'Circadian'
+    - platform: state
+      entity_id: input_select.light_mode
+      state: 'Circadian'
   action:
     - service: script.circadian_light
 # automation rule for entering media light mode
@@ -121,9 +121,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.light_mode
-    state: 'Media'
+    - platform: state
+      entity_id: input_select.light_mode
+      state: 'Media'
   action:
     - service: script.media_light
 
@@ -133,9 +133,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.media_center
-    state: "Power off"
+    - platform: state
+      entity_id: input_select.media_center
+      state: "Power off"
   action:
     - service: input_select.select_option
       data:
@@ -146,9 +146,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.media_center
-    state: "Roku"
+    - platform: state
+      entity_id: input_select.media_center
+      state: "Roku"
   action:
     - service: input_select.select_option
       data:
@@ -163,9 +163,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.media_center
-    state: "Computer"
+    - platform: state
+      entity_id: input_select.media_center
+      state: "Computer"
   action:
     - service: input_select.select_option
       data:
@@ -180,9 +180,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.media_center
-    state: "Switch"
+    - platform: state
+      entity_id: input_select.media_center
+      state: "Switch"
   action:
     - service: input_select.select_option
       data:
@@ -199,9 +199,9 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.tv_power
-    state: 'On'
+    - platform: state
+      entity_id: input_select.tv_power
+      state: 'On'
   action:
     - service: script.tv_on
 # automation rule for TV power off
@@ -209,8 +209,8 @@
   initial_state: true
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: input_select.tv_power
-    state: 'Off'
+    - platform: state
+      entity_id: input_select.tv_power
+      state: 'Off'
   action:
     - service: script.tv_off
