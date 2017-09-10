@@ -82,9 +82,9 @@
       event: leave
   # suppress if guest mode is on
   condition:
-    condition: state
-    entity_id: input_select.guest_mode
-    state: "Disabled"
+    - condition: state
+      entity_id: input_select.guest_mode
+      state: "Disabled"
   action:
     - service: homeassistant.turn_off
       entity_id: group.white_lights
@@ -103,7 +103,7 @@
   trigger:
     - platform: state
       entity_id: input_select.light_mode
-      state: 'Normal'
+      to: 'Normal'
   action:
     - service: script.normal_light
 # automation rule for entering circadian light mode
@@ -113,7 +113,7 @@
   trigger:
     - platform: state
       entity_id: input_select.light_mode
-      state: 'Circadian'
+      to: 'Circadian'
   action:
     - service: script.circadian_light
 # automation rule for entering media light mode
@@ -123,7 +123,7 @@
   trigger:
     - platform: state
       entity_id: input_select.light_mode
-      state: 'Media'
+      to: 'Media'
   action:
     - service: script.media_light
 
@@ -135,7 +135,7 @@
   trigger:
     - platform: state
       entity_id: input_select.media_center
-      state: "Power off"
+      to: "Power off"
   action:
     - service: input_select.select_option
       data:
@@ -148,7 +148,7 @@
   trigger:
     - platform: state
       entity_id: input_select.media_center
-      state: "Roku"
+      to: "Roku"
   action:
     - service: input_select.select_option
       data:
@@ -165,7 +165,7 @@
   trigger:
     - platform: state
       entity_id: input_select.media_center
-      state: "Computer"
+      to: "Computer"
   action:
     - service: input_select.select_option
       data:
@@ -182,7 +182,7 @@
   trigger:
     - platform: state
       entity_id: input_select.media_center
-      state: "Switch"
+      to: "Switch"
   action:
     - service: input_select.select_option
       data:
@@ -201,7 +201,7 @@
   trigger:
     - platform: state
       entity_id: input_select.tv_power
-      state: 'On'
+      to: 'On'
   action:
     - service: script.tv_on
 # automation rule for TV power off
@@ -211,6 +211,6 @@
   trigger:
     - platform: state
       entity_id: input_select.tv_power
-      state: 'Off'
+      to: 'Off'
   action:
     - service: script.tv_off
