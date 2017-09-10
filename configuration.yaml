@@ -37,6 +37,14 @@ conversation:
 # Enables support for tracking state changes over time.
 history:
 
+#influxdb:
+#  host: !secret influx_ip
+#  port: !secret influx_port
+#  username: !secret influx_user
+#  password: !secret influx_password
+#  database: home_assistant
+
+
 # View all events in a logbook
 logbook:
 
