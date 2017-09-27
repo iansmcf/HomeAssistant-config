@@ -66,7 +66,9 @@
       event: enter
   action:
     - service: homeassistant.turn_on
-      entity_id: group.white_lights
+      entity_id: light.bedroom_lamp
+    - service: homeassistant.turn_on
+      entity_id: light.warehouse_lights
     - service: climate.set_hold_mode
       entity_id: climate.my_ecobee
       data:
