@@ -1,0 +1,5 @@
+media_player.kitchen_speaker:
+  config_entry_id:
+  name:
+  platform: cast
+  unique_id: 46b60fde-dd97-e9e1-96d8-267748a99525
