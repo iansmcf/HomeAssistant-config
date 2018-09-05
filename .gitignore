@@ -27,3 +27,4 @@ ir_codes.yaml
 on.ir
 *.pickle
 ir_cap.py
+custom_components/switch/__pycache__*
