@@ -37,6 +37,10 @@ conversation:
 # Enables support for tracking state changes over time.
 history:
 
+#Enable recording states
+recorder:
+  purge_keep_days: 2
+
 #influxdb:
 #  host: !secret influx_ip
 #  port: !secret influx_port
