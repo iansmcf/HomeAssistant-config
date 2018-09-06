@@ -19,6 +19,9 @@ frontend:
 # add config panel to frontend
 config:
 
+# Add map support
+map:
+
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_password

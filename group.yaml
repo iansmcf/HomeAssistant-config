@@ -8,6 +8,7 @@ default_view:
     - input_select.media_control
     - input_select.guest_mode
     - switch.mi_robot
+    - device_tracker.iansmcf_myphone
 white_lights:
   name: Lights
   entities:
