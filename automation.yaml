@@ -23,6 +23,7 @@
     - service: homeassistant.turn_off
       entity_id: light.bathroom_lightstrip
 
+
 ## desk_lightstrip on/off with power on outlet
 # rules for turning on the lightstrip when computer is running
 - alias: Turn on the desk lightstrip when outlet draws 25W or more
@@ -216,3 +217,16 @@
       to: 'Off'
   action:
     - service: script.tv_off
+
+
+- alias: Announce that Home Assistant has started
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: tts.google_say
+      entity_id: cast.google_home_bedroom
+      data:
+        message: "Home Assistant has started."
