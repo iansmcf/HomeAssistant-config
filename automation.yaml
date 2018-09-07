@@ -227,6 +227,6 @@
       event: start
   action:
     - service: tts.google_say
-      entity_id: cast.google_home_bedroom
+      entity_id: media_player.bedroom_speaker
       data:
         message: "Home Assistant has started."
