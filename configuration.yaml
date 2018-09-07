@@ -108,17 +108,17 @@ light:
   allow_hue_groups: true
 
 # enable wemo component
-wemo:
-  static:
-    - 192.168.88.20
-    - 192.168.88.21
-    - 192.168.88.22
+#wemo:
+#  static:
+#    - 192.168.88.20
+#    - 192.168.88.21
+#    - 192.168.88.22
 
 
 media_player:
     # enable roku component
-  - platform: roku
-    host: 192.168.88.30
+#  - platform: roku
+#    host: 192.168.88.30
     # enable plex component
   - platform: plex
     # enable bedroom google cast
@@ -162,10 +162,10 @@ mqtt:
 #  stop_colortemp: 2100
   #brightness: 255
 
-switch 2:
-  platform: broadlink
-  host: 192.168.88.34
-  mac: !secret broadlink_MAC
+#switch 2:
+#  platform: broadlink
+#  host: 192.168.88.34
+#  mac: !secret broadlink_MAC
 
 # my computer
 #device_tracker:
@@ -177,12 +177,12 @@ switch 2:
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
-    track_new_devices: no
+    mqtt_topic: "owntracks/#"
 
 # enable zwave
-zwave:
-  usb_path: /dev/ttyACM0
-  config_path: /home/homeassistant/python-openzwave/openzwave/config
+#zwave:
+#  usb_path: /dev/ttyACM0
+#  config_path: /home/homeassistant/python-openzwave/openzwave/config
 
 # Add an input select which controls the white balance of lights in one of three modes
 input_select:
