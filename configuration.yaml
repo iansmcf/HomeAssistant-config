@@ -79,14 +79,14 @@ sensor:
       - wind_bearing
       - apparent_temperature
       - icon
-  - platform: fedex
-    username: !secret fedex_username
-    password: !secret fedex_password
-    name: fedex_packages
-  - platform: ups
-    username: !secret ups_username
-    password: !secret ups_password
-    name: ups_packages
+#  - platform: fedex
+#    username: !secret fedex_username
+#    password: !secret fedex_password
+#    name: fedex_packages
+#  - platform: ups
+#    username: !secret ups_username
+#    password: !secret ups_password
+#    name: ups_packages
 
 emulated_hue:
   type: google_home

@@ -226,7 +226,8 @@
     - platform: homeassistant
       event: start
   action:
-    - service: tts.google_say
+    - service: media_player.play_media
       entity_id: media_player.bedroom_speaker
       data:
-        message: "Home Assistant has started."
+        media_content_id: "winxp.mp3"
+        media_content_type: "audio/mp3"

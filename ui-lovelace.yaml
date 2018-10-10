@@ -1,0 +1,12 @@
+title: My Home
+
+views:
+  - title: Example
+    id: Example
+    cards:
+      - type: entity
+        entities:
+          - device_tracker.iansmcf_myphone
+        card:
+          type: glance
+          title: My location

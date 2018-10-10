@@ -12,12 +12,6 @@ light.hue_color_lamp_3:
 light.hue_color_lamp_4:
   hidden: true
   emulated_hue: false
-light.hue_lightstrip_1:
-  hidden: true
-  emulated_hue: false
-light.hue_lightstrip_2:
-  hidden: true
-  emulated_hue: false
 # define light groups
 light.living_room_lamp:
   hidden: false
@@ -28,9 +22,6 @@ light.bedroom_lamp:
   icon: mdi:lamp
   emulated_hue: true
 light.bathroom_lightstrip:
-  hidden: false
-  emulated_hue: false
-light.desk_lightstrip:
   hidden: false
   emulated_hue: false
 light.warehouse_lights:
@@ -45,82 +36,48 @@ group.bedroom_lamp:
 group.living_room_lamp:
   hidden: true
 
-
-
-##zwave
-# declare front door
-binary_sensor.ecolink_doorwindow_sensor_sensor:
-  hidden: true
-  friendly_name: "Front door sensor"
-# declare bathroom motion
-binary_sensor.ecolink_pir_motion_sensor_sensor:
-  hidden: false
-  friendly_name: "Bathroom motion"
-# hide everything else
-sensor.ecolink_doorwindow_sensor_alarm_level:
-  hidden: true
-sensor.ecolink_doorwindow_sensor_alarm_type:
-  hidden: true
-sensor.ecolink_doorwindow_sensor_burglar:
-  hidden: true
-sensor.ecolink_doorwindow_sensor_sourcenodeid:
-  hidden: true
-sensor.ecolink_pir_motion_sensor_alarm_level:
-  hidden: true
-sensor.ecolink_pir_motion_sensor_alarm_type:
-  hidden: true
-sensor.ecolink_pir_motion_sensor_burglar:
-  hidden: true
-sensor.ecolink_pir_motion_sensor_sourcenodeid:
-  hidden: true
 ##weather
 # hide the weather
 sensor.yr_symbol:
   hidden: true
-# hide darksky weather
+# hide some darksky weather
 sensor.weather_apparent_temperature:
   hidden: true
 sensor.weather_humidity:
-  hidden: true
+  hidden: false
 sensor.weather_icon:
-  hidden: true
+  hidden: false
 sensor.weather_precip_intensity:
-  hidden: true
+  hidden: false
 sensor.weather_precip_probability:
-  hidden: true
+  hidden: false
 sensor.weather_pressure:
   hidden: true
 sensor.weather_temperature:
-  hidden: true
+  hidden: false
 sensor.weather_wind_bearing:
   hidden: true
 sensor.weather_wind_speed:
   hidden: true
 
 ##sun
-# hide the sun
+# show the sun
 sun.sun:
-  hidden: true
+  hidden: false
 
 #customize switch
-switch.wemo_bedroom_switch:
-  hidden: false
-  icon: mdi:fan
-  friendly_name: Air filter
+#switch.wemo_bedroom_switch:
+#  hidden: false
+#  icon: mdi:fan
+#  friendly_name: Air filter
   # enable control by google home
-  emulated_hue: true
+#  emulated_hue: true
 
 switch.tv_outlet:
   hidden: true
   icon: mdi:tv
   frienly_name: TV power
   # disable control by google home
-  emulated_hue: false
-
-#customize computer outlet
-switch.computer_outlet:
-  hidden: false
-  friendly_name: Computer outlet
   emulated_hue: false
 
 ##customize scripts
